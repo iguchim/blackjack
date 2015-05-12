@@ -19,16 +19,16 @@ def get_value(card)
 end
 
 def total(deck)
-  ace = false
+  aces = 0
   sum = 0
   deck.each do | card |
     val = get_value(card)
     if val == 11
-      ace = true
+      aces += 1
     end
     sum += val
   end
-  if sum > 21 && ace
+  while (sum > 21 && aces > 0)
     sum -= 10
   end
   sum
